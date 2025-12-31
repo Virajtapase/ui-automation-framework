@@ -3,19 +3,25 @@ package stepdefination;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import hooks.Hooks;
 import io.cucumber.java.en.*;
+import utilities.DriverFactory;
 import utilities.DriverLaunch;
 import utilities.TestcasesUtilities;
 
 public class firsttest extends DriverLaunch {
 	TestcasesUtilities tc = new TestcasesUtilities();
-
+	WebDriver driver = DriverFactory.getDriver();
+	
 	@Given("user navigates to the login page {string}")
-	public void user_navigates_to_the_login_page(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-		driver = driverup();
-		driver.get("https://rahulshettyacademy.com/loginpagePractise/");
-	}
+    public void user_navigates_to_the_login_page(String url) {
+
+        
+        driver.get(url);
+    }
+	
+
+	
 	@When("user enters username {string}")
 	public void user_enters_username(String string) {
 	    // Write code here that turns the phrase above into concrete actions
